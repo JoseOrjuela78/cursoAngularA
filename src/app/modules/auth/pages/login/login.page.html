@@ -1,0 +1,43 @@
+<h1>Login work</h1>
+
+<div *ngFor="let persona of info.personas">
+    <!--*ngIf="persona.active"-->
+    <!--
+    <h5 [ngStyle]="{'color': persona.type === 'maestro'? 'red': persona.type === 'estudiante'? 'green':'blue'}" [ngClass]="{
+    'active': persona.active,
+    'no_active': !persona.active,
+    'is_teacher':persona.type =='maestro',
+    'is_student':persona.type =='estudiante',
+    'is_admin':persona.type =='directivo'
+  }">{{persona.name}}</h5>
+  -->
+    <app-persona [name]="persona.name" (onClick)="clickParent($event)"></app-persona>
+</div>
+
+<hr>
+<input [(ngModel)]="transf.kilometros" type="number" (input)="transf.convert()">
+<div>{{transf.milles}}</div>
+
+<hr>
+<button (click)="sendRegister()">sendRegister</button>
+<hr>
+<input [(ngModel)]="name" appTitleCase type="text">
+
+<hr>
+
+<div>
+    <h1>Login {{count}}</h1>
+    <div>
+        <label for="email">Email</label>
+        <input [(ngModel)]="email" type="text" id="email">
+    </div>
+    <div>
+        <label for="email">Password</label>
+        <input [(ngModel)]="password" type="text" id="password">
+    </div>
+    <div>
+        <button (click)="login()">Login</button>
+    </div>
+</div>
+
+<hr>

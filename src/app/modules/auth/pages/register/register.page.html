@@ -1,0 +1,32 @@
+<h1>register work</h1>
+<form [formGroup]="myForm" (ngSubmit)="saveUser()">
+
+    <div>
+        <label for="name">Nombre :</label>
+        <input type="text" id="name" formControlName="name">
+    </div>
+    <div>
+        <label for="lastName">Apellido :</label>
+        <input type="text" id="lastName" formControlName="lastName">
+    </div>
+    <div>
+        <label for="email">email :</label>
+        <input type="email" id="email" formControlName="email">
+        <span *ngIf="this.myForm.controls['email'].status == 'INVALID' && this.myForm.controls['email'].dirty">email no valido</span>
+    </div>
+    <div>
+        <label for="password">password :</label>
+        <input type="email" id="password" formControlName="password">
+    </div>
+    <div>
+        <label for="number">number :</label>
+        <input type="number" id="number" formControlName="number">
+        <span *ngIf="this.myForm.controls['number'].hasError('phone618invalid') && this.myForm.controls['number'].dirty">no contiene 618</span>
+        <span *ngIf="this.myForm.controls['number'].hasError('phone777invalid') && this.myForm.controls['number'].dirty">no contiene 777</span>
+    </div>
+    <div>
+        <button type="submit" [disabled]="!myForm.valid">Guardar</button>
+    </div>
+
+
+</form>
